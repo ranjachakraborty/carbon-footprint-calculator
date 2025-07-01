@@ -1,0 +1,53 @@
+print("🌍 Personal Carbon Footprint Calculator 🌱\n")
+
+# --- Emission Factors (kg CO2 per unit) ---
+factors = {
+    "flight_km": 0.15,
+    "online_orders": 0.5,
+    "food_delivery": 0.4,
+    "streaming_hours": 0.036,
+    "car_km": 0.2,
+    "meat_meals": 2.5
+}
+
+# --- Ask Questions One by One ---
+print("1. How many kilometers did you travel by flight this month?")
+flight_km = float(input())
+
+print("2. How many online purchases did you make?")
+online_orders = int(input())
+
+print("3. How many food deliveries did you order?")
+food_deliveries = int(input())
+
+print("4. How many hours did you stream video content?")
+streaming_hours = float(input())
+
+print("5. How many kilometers did you travel by car?")
+car_km = float(input())
+
+print("6. How many non-veg/meat-heavy meals did you eat this week?")
+meat_meals = int(input())
+
+# --- Emissions Calculation ---
+emissions_breakdown = {
+    "Flights": flight_km * factors["flight_km"],
+    "Online Shopping": online_orders * factors["online_orders"],
+    "Food Delivery": food_deliveries * factors["food_delivery"],
+    "Streaming": streaming_hours * factors["streaming_hours"],
+    "Car Travel": car_km * factors["car_km"],
+    "Meat Meals": meat_meals * factors["meat_meals"]
+}
+
+total_emissions = sum(emissions_breakdown.values())
+
+# --- Display Result ---
+print("\n📊 Your Carbon Emissions Breakdown (Approx.):")
+for category, value in emissions_breakdown.items():
+    print(f"- {category}: {value:.2f} kg CO2")
+
+print(f"\n🌡 Total Carbon Footprint: {total_emissions:.2f} kg CO2")
+
+# --- Offsetting Suggestion ---
+trees_needed = total_emissions / 21
+print(f"🌳 You would need to plant approximately {trees_needed:.1f} trees to offset this."
